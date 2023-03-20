@@ -41,7 +41,6 @@ def draw_half_circle_no_round(image):
     axes = (radius - 10, radius - 10)
     # Draw a bit smaller white half circle
     cv2.ellipse(image, center, axes, angle, startAngle, endAngle, WHITE, thickness)
-    cv2.e
 
 
 draw_half_circle_no_round(create_blank(300,150))

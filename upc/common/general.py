@@ -147,17 +147,17 @@ def show_message_dialog(text, OK="OK", Cancel="取消"):
 
 
 def load_camera():
-    arr = []
-    res = 3000
-    for idx in range(0, 5, 1):
-        cap = cv2.VideoCapture(idx, cv2.CAP_DSHOW)
-        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, res)
-        cap.set(cv2.CAP_PROP_FRAME_WIDTH, res)
-
-        h = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
-        w = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
-        arr.append(str(idx)) if int(h) not in [res, 0] else arr
-    LOGGER.info('Camera index available :  ' + ', '.join(f'{x}' for x in arr))
+    arr = [0,2]
+    # res = 3000
+    # for idx in range(0, 5, 1):
+    #     cap = cv2.VideoCapture(idx, cv2.CAP_DSHOW)
+    #     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, res)
+    #     cap.set(cv2.CAP_PROP_FRAME_WIDTH, res)
+    #
+    #     h = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+    #     w = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+    #     arr.append(str(idx)) if int(h) not in [res, 0] else arr
+    # LOGGER.info('Camera index available :  ' + ', '.join(f'{x}' for x in arr))
     return arr
 
 

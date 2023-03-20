@@ -264,36 +264,36 @@ class Main(QMainWindow):
         return detected_count
 
     def transfer_form(self):
-        try:
-            if self.central.currentIndex() == 0:  # Init widget -> Scan Widget
-                self.intro_widget.notification_init.setText("カメラの読み込み . . .")
-                self.scan_and_setting_widget.load_list_camera()
-                self.intro_widget.notification_init.setText("AI モデルの読み込み. . .")
-                self.init_model()
-
-                self.central.setCurrentIndex(1)
-
-                # Check camera exist
-                if self.scan_and_setting_widget is not None and len(self.scan_and_setting_widget.camera_list) < 2:
-                    self.notification_signal.emit("カメラが初期化されていません。カメラをチェックしてください！")
-                    return
-                # self.notification_signal.emit("カメラが初期化されました。バーコードをスキャンしてください !")
-
-                # Read barcode ID
-                while True:
-                    if not self.is_setting:
-                        if self.scan_and_setting_widget.data_read is not None:
-                            self.action_widget.camera_loaded = self.scan_and_setting_widget.camera_loaded
-                            break
-
-                # Set Title
-                self.action_widget.lb_center.setText(self.setting.getYkCenter())
-                self.action_widget.rpa_qr.setText(self.setting.getRpaQr())
-                self.action_widget.lb_yl_id.setText(f"{self.scan_and_setting_widget.data_read}")
-                self.action_widget.lb_yl_name.setText(f"ブイニャットナム")
-        except Exception as e:
-            LOGGER.error(e)
-            return
+        # try:
+        #     if self.central.currentIndex() == 0:  # Init widget -> Scan Widget
+        #         self.intro_widget.notification_init.setText("カメラの読み込み . . .")
+        #         self.scan_and_setting_widget.load_list_camera()
+        #         self.intro_widget.notification_init.setText("AI モデルの読み込み. . .")
+        self.init_model()
+        #
+        #         self.central.setCurrentIndex(1)
+        #
+        #         # Check camera exist
+        #         if self.scan_and_setting_widget is not None and len(self.scan_and_setting_widget.camera_list) < 2:
+        #             self.notification_signal.emit("カメラが初期化されていません。カメラをチェックしてください！")
+        #             return
+        #         # self.notification_signal.emit("カメラが初期化されました。バーコードをスキャンしてください !")
+        #
+        #         # Read barcode ID
+        #         while True:
+        #             if not self.is_setting:
+        #                 if self.scan_and_setting_widget.data_read is not None:
+        #                     self.action_widget.camera_loaded = self.scan_and_setting_widget.camera_loaded
+        #                     break
+        #
+        #         # Set Title
+        #         self.action_widget.lb_center.setText(self.setting.getYkCenter())
+        #         self.action_widget.rpa_qr.setText(self.setting.getRpaQr())
+        #         self.action_widget.lb_yl_id.setText(f"{self.scan_and_setting_widget.data_read}")
+        #         self.action_widget.lb_yl_name.setText(f"ブイニャットナム")
+        # except Exception as e:
+        #     LOGGER.error(e)
+        #     return
         # # --> Direct to Action Widget [2]
         self.central.setCurrentIndex(2)
 
