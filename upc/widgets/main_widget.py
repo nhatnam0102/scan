@@ -15,7 +15,6 @@ from PyQt5 import QtCore
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
-
 from upc.common import general, style_sheet
 from upc.common.general import LOGGER
 from upc.widgets.action_widget import ActionWidget
@@ -146,17 +145,17 @@ class DetectHub(QtCore.QThread):
                                            source=self.source)
 
     def set_inference(self):
-        self.model_top.cuda()
+        # self.model_top.cuda()
         self.model_top.iou = float(self.setting.getIou())
         self.model_top.conf = float(self.setting.getConf())
         # self.model_top.agnostic = True
 
-        self.model_yoko.cuda()
+        # self.model_yoko.cuda()
         self.model_yoko.iou = float(self.setting.getIou())
         self.model_yoko.conf = float(self.setting.getConf())
         # self.model_yoko.agnostic = True
 
-        self.model_second.cuda()
+        # self.model_second.cuda()
         self.model_second.iou = float(self.setting.getIou())
         self.model_second.conf = float(self.setting.getConf())
 
